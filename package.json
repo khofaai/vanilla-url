@@ -1,0 +1,7 @@
+{
+  "name": "vanilla-url",
+  "version": "0.1.0",
+  "description": "basic features to manipulate url using native window.location",
+  "keywords": "['url', 'location', 'vanilla-url']",
+  "main": "./url.js"
+}
