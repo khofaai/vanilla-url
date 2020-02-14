@@ -3,15 +3,24 @@ const EQUAL   = '=';
 const INITAL  = '?';
 
 class Url {
-  
+    
+  /**
+   * @returns String
+   */
   getSearch() {
     return window.location.search
   }
-
+  
+  /**
+   * @returns String
+   */
   decode(uri) {
     return decodeURI(uri);
   }
-
+  
+  /**
+   * @returns Number
+   */
   urlId(spliTarget) {
     let pathname = window.location.pathname;
     let proj = pathname.split(spliTarget);
@@ -21,14 +30,20 @@ class Url {
     }
     return 0;
   }
-
+  
+  /**
+   * @returns Any
+   */
   query(param = null) {
     if(param !== null && param !== undefined) {
       return this.getQuery(param);
     }
     return this.getQueries();
   }
-
+  
+  /**
+   * @returns Array
+   */
   getQueries() {
     let _queryParams = {};
     let _params = this.decode(this.getSearch()).split(INITAL)[1];
@@ -46,7 +61,10 @@ class Url {
 
     return _queryParams;
   }
-
+  
+  /**
+   * @returns Any
+   */
   getQuery(param) {
     let _params = decodeURI(window.location.search).split(param);
     if(_params.length > 2) {
@@ -57,11 +75,13 @@ class Url {
     }
     return null;
   }
-
+  
+  /**
+   * @returns Boolean
+   */
   hasPath(pathName) {
     return window.location.pathname.indexOf(pathName) !== -1
   }
-  
 }
 
 export default new Url;
